@@ -54,6 +54,7 @@ class UpdatePasswordPresenterTest {
     fun setUp() {
         Mockito.`when`(preferencesHelper?.baseUrl)
                 .thenReturn(BaseURL.PROTOCOL_HTTPS + BaseURL.API_ENDPOINT)
+        Mockito.`when`(preferencesHelper?.userName).thenReturn("username") // username is required to update authentication token
         presenter = UpdatePasswordPresenter(context!!, dataManager!!, preferencesHelper!!)
         passwordPayload = FakeRemoteDataSource.updatePasswordPayload
         presenter?.attachView(view)
